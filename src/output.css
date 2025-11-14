@@ -188,9 +188,6 @@
   .m-auto {
     margin: auto;
   }
-  .mx-\[50px\] {
-    margin-inline: 50px;
-  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -224,9 +221,6 @@
   .justify-center {
     justify-content: center;
   }
-  .gap-2 {
-    gap: calc(var(--spacing) * 2);
-  }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
@@ -246,18 +240,20 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
-  .border-b-2 {
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 2px;
-  }
   .border-\[\#D10024\] {
     border-color: #D10024;
   }
   .bg-\[\#1E1F29\] {
     background-color: #1E1F29;
   }
+  .bg-\[\#1e1f29\] {
+    background-color: #1e1f29;
+  }
   .bg-\[\#15161D\] {
     background-color: #15161D;
+  }
+  .bg-\[\#15161d\] {
+    background-color: #15161d;
   }
   .bg-\[\#D10024\] {
     background-color: #D10024;
@@ -274,14 +270,14 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-\[15px\] {
-    padding-inline: 15px;
-  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
+  }
+  .text-center {
+    text-align: center;
   }
   .text-lg {
     font-size: var(--text-lg);
@@ -297,6 +293,9 @@
   }
   .text-\[\#7e7d78\] {
     color: #7e7d78;
+  }
+  .text-\[\#B9BABC\] {
+    color: #B9BABC;
   }
   .text-\[\#D10024\] {
     color: #D10024;
@@ -314,6 +313,21 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .hover\:border-b {
+    &:hover {
+      @media (hover: hover) {
+        border-bottom-style: var(--tw-border-style);
+        border-bottom-width: 1px;
+      }
+    }
+  }
+  .hover\:border-\[\#D10024\] {
+    &:hover {
+      @media (hover: hover) {
+        border-color: #D10024;
+      }
+    }
+  }
   .hover\:text-\[\#D10024\] {
     &:hover {
       @media (hover: hover) {
@@ -326,11 +340,6 @@
       @media (hover: hover) {
         color: #d10024;
       }
-    }
-  }
-  .sm\:w-\[50px\] {
-    @media (width >= 40rem) {
-      width: 50px;
     }
   }
 }

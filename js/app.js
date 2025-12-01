@@ -1,7 +1,7 @@
 let price= document.getElementById('price')
-let totalprice=document.getElementById('totalprice')
 let percent=document.getElementById('percent')
-let t=document.getElementById('totalprice')
+let time=document.getElementById('time')
+let totalprice=document.getElementById('totalprice')
   const links = document.querySelectorAll(".tab-link");
     const cards = document.querySelectorAll(".card");
 
@@ -9,7 +9,7 @@ let t=document.getElementById('totalprice')
       link.addEventListener("click", (e) => {
         e.preventDefault();
 
-        const target = link.getAttribute("href");
+           const target = link.getAttribute("href").replace("#", "");
 
         // bütün kartları gizlət
         cards.forEach(card => card.classList.add("hidden"));
@@ -19,9 +19,19 @@ let t=document.getElementById('totalprice')
       });
     });
 function updatePrice() {
-    totalprice.innerHTML = `
-        <p class="text-[45px] font-semibold mb-3">${price.value}₼</p>
+     const P = Number(price.value);           
+    const n = Number(time.value);            
+    const r = Number(percent.value)/12/100;  
+  // let monthlyprice=price.value/time.value
+  // let ededinfaizi=percent.value* monthlyprice /100;
+  // let total=monthlyprice+ededinfaizi;
+    const total = P * (r * (1 + r)**n) / ((1 + r)**n - 1)
+       totalprice.innerHTML = `
+        <p class="text-[45px] font-semibold mb-1">${total.toFixed(2)}₼</p>
     `;
 }
 updatePrice()
-  price.addEventListener("input", updatePrice);
+price.addEventListener("input", updatePrice);
+time.addEventListener("input", updatePrice);
+percent.addEventListener("input", updatePrice);
+

@@ -18,11 +18,11 @@
             max-width: 1160px;
         }
 
-        #price {
+        input[type="range"] {
             background-color: #1b63ed;
         }
 
-        #price::-webkit-slider-thumb {
+        input[type="range"]::-webkit-slider-thumb {
             width: 24px;
             height: 24px;
             border-radius: 0;
@@ -30,7 +30,7 @@
             border: none;
         }
 
-        #price::-moz-range-thumb {
+        input[type="range"]::-moz-range-thumb {
             width: 24px;
             height: 24px;
             border-radius: 0;
@@ -43,7 +43,7 @@
 
 <body>
     <header class="sticky top-0 z-10 bg-white">
-        <div class="container py-3">
+        <div class="container mx-auto py-3">
             <div class="flex flex-row items-center justify-between gap-8 xl:gap-1000">
 
                 <div class="deskopt-menu flex sm:hidden">
@@ -80,17 +80,19 @@
     <main>
         <section>
             <div class="container mx-auto  py-[64px]">
-                <section class="grid md:grid-cols-2">
-                    <h3 class="">İndi hesablayın</h3>
-   <ul class="flex gap-10 mb-6">
-  <li><a href="#credit" class="tab-link text-blue-600 font-semibold">Kredit</a></li>
-  <li><a href="#deposit" class="tab-link">Depozit</a></li>
-  <li><a href="#auto" class="tab-link">Avtomobil krediti</a></li>
-  <li><a href="#ipoteca" class="tab-link">İpoteka</a></li>
-</ul>
+                <div class="text-center">
+                    <h3 class="text-5xl">İndi hesablayın</h3>
+                    <ul class="flex gap-10 mb-6  justify-center my-5">
+                        <li><a href="#credit" class="tab-link text-blue-600 font-semibold">Kredit</a></li>
+                        <li><a href="#deposit" class="tab-link">Depozit</a></li>
+                        <li><a href="#auto" class="tab-link">Avtomobil krediti</a></li>
+                        <li><a href="#ipoteka" class="tab-link">İpoteka</a></li>
+                    </ul>
+                </div>
 
-                    <div class="flex flex-col">
-                        <label class="flex flex-col" for="">Məbləğ
+                <section class="grid md:grid-cols-2  grid-cols-1 ">
+                    <div class="flex flex-col   ">
+                        <label class="flex flex-col " for="">Məbləğ
                             <input class="    w-[70%] appearance-none h-2 rounded-lg " type="range" min="300"
                                 max="50000" name="" id="price">
                             <div class="flex ">
@@ -98,17 +100,19 @@
                                 <p>50000₼</p>
                             </div>
                         </label>
-                        <label class="flex flex-col" for="">Müddət
-                            <input type="range" min="3" max="59" id="time">
+                        <label class="flex flex-col " for="">Müddət
+                            <input class="    w-[70%] appearance-none h-2 rounded-lg " type="range" min="3" max="59"
+                                id="time">
 
                         </label>
-                        <label class="flex flex-col" for="">
+                        <label class="flex flex-col mb-5" for="">
                             Faiz dərəcəsi
-                            <input type="range" name="" min="10.9" max="31.9" id="percent">
+                            <input type="range" class="    w-[70%] appearance-none h-2 rounded-lg " name="" min="10.9"
+                                max="31.9" id="percent">
                         </label>
                     </div>
 
-                    <div id="credit" class="card  bg-[#1b63ed] lg:p-[36px] space-y-800  p-[20px] rounded-2xl  w-[376px]">
+                    <div id="credit" class="card  bg-[#1b63ed] lg:p-[25px] space-y-800  p-[20px] rounded-2xl  w-[70%]">
                         <div class="gap-5 flex flex-col items-center text-center text-white">
                             <p>Aylıq kredit ödənişi</p>
                             <div id="totalprice"></div>
@@ -116,10 +120,11 @@
                                 et</button>
                         </div>
                     </div>
-                    <div class="card  hidden bg-[#1b63ed] lg:p-[36px] space-y-800  p-[20px] rounded-2xl  w-[376px]" id="deposit">
+                    <div class="card  hidden bg-[#1b63ed] lg:p-[36px] space-y-800  p-[20px] rounded-2xl  w-[376px]"
+                        id="deposit">
                         <div class="gap-5 flex flex-col items-center text-center text-white">
                             <p>Aylıq kredit ödənişi</p>
-                            <div id="totalprice"></div>
+                            <div id=""></div>
                             <hr />
                             <div class="flex">
                                 <div class="flex flex-col">
@@ -128,18 +133,18 @@
                                 </div>
                                 <div class="flex flex-col">
                                     <p>Ümumi ödəniş</p>
-                                    <div id="" ></div>
+                                    <div id=""></div>
                                 </div>
 
                             </div>
-      <div class="flex">
+                            <div class="flex">
                                 <div class="flex flex-col">
                                     <p>Komissiya (0.5%, min 20 AZN)</p>
                                     <div id=""></div>
                                 </div>
                                 <div class="flex flex-col">
                                     <p>Ümumi ödəniş</p>
-                                    <div id="" ></div>
+                                    <div id=""></div>
                                 </div>
 
                             </div>

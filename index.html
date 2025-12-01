@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="mobile-menu hidden sm:flex">
-                    <img src="img/ABB_Logo.png" alt="Logo" class="w-[15vw] h-[8vh]">
+                    <img src="img/ABB_Logo.png" alt="Logo" class="w-[10vw] h-[8vh]">
                     <p class="text-[#82858a] hover:text-black">AZ</p>
                     <hr />
                     <a href="tel:937"><i class="fa-solid fa-phone"></i>937</a>
@@ -82,12 +82,13 @@
             <div class="container mx-auto  py-[64px]">
                 <section class="grid md:grid-cols-2">
                     <h3 class="">İndi hesablayın</h3>
-                    <ul>
-                        <li><a href="">Kredit</a></li>
-                        <li><a href="">Depozit</a></li>
-                        <li><a href="">Avtomobil krediti</a></li>
-                        <li><a href="">İpoteka</a></li>
-                    </ul>
+   <ul class="flex gap-10 mb-6">
+  <li><a href="#credit" class="tab-link text-blue-600 font-semibold">Kredit</a></li>
+  <li><a href="#deposit" class="tab-link">Depozit</a></li>
+  <li><a href="#auto" class="tab-link">Avtomobil krediti</a></li>
+  <li><a href="#ipoteca" class="tab-link">İpoteka</a></li>
+</ul>
+
                     <div class="flex flex-col">
                         <label class="flex flex-col" for="">Məbləğ
                             <input class="    w-[70%] appearance-none h-2 rounded-lg " type="range" min="300"
@@ -107,7 +108,7 @@
                         </label>
                     </div>
 
-                    <div class="card  bg-[#1b63ed] lg:p-[36px] space-y-800  p-[20px] rounded-2xl  w-[376px]">
+                    <div id="credit" class="card  bg-[#1b63ed] lg:p-[36px] space-y-800  p-[20px] rounded-2xl  w-[376px]">
                         <div class="gap-5 flex flex-col items-center text-center text-white">
                             <p>Aylıq kredit ödənişi</p>
                             <div id="totalprice"></div>
@@ -115,7 +116,7 @@
                                 et</button>
                         </div>
                     </div>
-                    <div class="card  bg-[#1b63ed] lg:p-[36px] space-y-800  p-[20px] rounded-2xl  w-[376px]">
+                    <div class="card  hidden bg-[#1b63ed] lg:p-[36px] space-y-800  p-[20px] rounded-2xl  w-[376px]" id="deposit">
                         <div class="gap-5 flex flex-col items-center text-center text-white">
                             <p>Aylıq kredit ödənişi</p>
                             <div id="totalprice"></div>

@@ -4,13 +4,13 @@ let time=document.getElementById('time')
 let totalprice=document.getElementById('totalprice')
   const links = document.querySelectorAll(".tab-link");
     const cards = document.querySelectorAll(".card");
+    const rangeler = document.querySelectorAll(".rangeler");
 
     links.forEach(link => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
 
            const target = link.getAttribute("href").replace("#", "");
-
         // bütün kartları gizlət
         cards.forEach(card => card.classList.add("hidden"));
 
@@ -34,4 +34,7 @@ updatePrice()
 price.addEventListener("input", updatePrice);
 time.addEventListener("input", updatePrice);
 percent.addEventListener("input", updatePrice);
+function deposit(){
+  
+}
 

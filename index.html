@@ -83,8 +83,7 @@
                 <div class="text-center">
                     <h3 class="text-5xl">İndi hesablayın</h3>
                     <ul class="flex gap-10 mb-6  justify-center my-5">
-                        <li><a href="#credit"
-                                class="tab-link bg-black p-[10px] rounded-xl text-white font-semibold">Kredit</a></li>
+                        <li><a href="#credit" class="tab-link bg-black p-[10px] rounded-xl text-white font-semibold">Kredit</a></li>
                         <li><a href="#deposit" class="tab-link">Depozit</a></li>
                         <li><a href="#auto" class="tab-link">Avtomobil krediti</a></li>
                         <li><a href="#ipoteka" class="tab-link">İpoteka</a></li>
@@ -124,32 +123,52 @@
                             <div class="flex justify-between">
 
                                 <div>
-                                    <button>Hər ay</button>
-                                    <button>Hər il</button>
+                                    <button id="every-month">Hər ay</button>
+                                    <button id="every-year">Hər il</button>
                                 </div>
                                 <div>
                                     <button>Azn</button>
                                     <button>Usd</button>
                                 </div>
                             </div>
-
-                            <input type="range" name="" min="300" max="3000000" id="">
-                        </div>
+                            <label for="">
+                                Məbləğ
+                                   <input type="range" name="" min="300" max="3000000" id="depositCalculation">
+                      
+                            </label>
+                            <label for="">
+                                Müddət
+                                <button id="depositmonth" value="3">3</button>
+                                <button id="depositmonth" value="6">6</button>
+                                <button id="depositmonth" value="12">12</button>
+                                <button id="depositmonth" value="18">18</button>
+                                <button id="depositmonth" value="24">24</button>
+                                <button id="depositmonth" value="36">36</button>
+                            </label>
+                           </div>
                     </div>
                     <div class="card bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%]  lg:w-[376px] text-white">
 
                         <p>Aylıq kredit ödənişi</p>
-                        <div id=""></div>
+                        <div id="totalpriceofdeposit"></div>
                         <hr />
                         <div class="flex justify-between ">
                             <p>Hər ay ödənilən faiz</p>
+                               <p id="monthlyincome"></p>
                             <p>Faiz dərəcəsi</p>
+                               <div id="depositpercent"></div>
                         </div>
                         <p></p>
                     </div>
                 </div>
 
                 <div class="tab-body hidden  grid md:grid-cols-2 " id="auto">
+                   <div class=" flex">
+                    <button>Elektrik</button>
+                    <button>Hibrid</button>
+                    <button>Digər</button>
+
+                   </div>
                     <div class="flex flex-col">
                         <label for="">
                             Avtomobilin qiyməti

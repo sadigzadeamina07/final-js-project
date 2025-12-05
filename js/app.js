@@ -6,8 +6,12 @@ let depositprice = document.getElementById('depositCalculation')
 let totalpriceofdeposit = document.getElementById('totalpriceofdeposit')
 let monthlyincome = document.getElementById('monthlyincome')
 let depositpercent = document.getElementById('depositpercent')
+const autoPrice = document.getElementById("autoPrice");
+const autoPercent = document.getElementById("autoPercent");
+const creditTimeofAuto = document.getElementById("creditTimeofAuto");
+const totalpriceofauto = document.getElementById("totalpriceofauto");
 const links = document.querySelectorAll(".tab-link");
-const tabs = document.querySelectorAll(".tab-body");
+const tabs = document.querySelectorAll(".tab-body")
 links.forEach(link => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
@@ -30,6 +34,7 @@ updatePrice()
 price.addEventListener("input", updatePrice);
 time.addEventListener("input", updatePrice);
 percent.addEventListener("input", updatePrice);
+//deposit
 const depositPercent = {
   3: 8,
   6: 8.5,
@@ -41,6 +46,7 @@ const depositPercent = {
 let selectedmonth = 3
 let depositMode = "month";
 function deposit() {
+
   const amount = Number(depositprice.value)
   const percentofdeposit = depositPercent[selectedmonth]
   let totalpricedeposit = amount * ((percentofdeposit / 100) * (selectedmonth / 12));
@@ -82,5 +88,35 @@ everyYearBtn.addEventListener("click", () => {
   depositMode = "year";
   deposit();
 });
+
 depositprice.addEventListener("input", deposit);
 deposit()
+//auto
+  const autotypepercent={
+Elektrik:13,
+Hibrid:13.5,
+Digər:14
+}
+let selectedType = "Elektrik"; 
+function auto(){
+let percent  = Number(autoPercent.value)
+ let monthly = Number(creditTimeofAuto.value)
+let price  = Number(autoPrice.value)
+/*
+  let totalpaid=price-price*(percent/100)
+  let topaymonthly=totalpaid*(autotypepercent[selectedType]/100/12)+totalpaid
+let totalpriceauto = (topaymonthly) / monthly ;*/
+  let totalpaid=price-price*(percent/100)
+let r = autotypepercent[selectedType]/100/12;
+let n = monthly;
+let totalpriceauto = totalpaid * (r * Math.pow((1+r),n)) / (Math.pow((1+r),n)- 1);
+
+totalpriceofauto.innerHTML = `
+        <p class="text-[45px] font-semibold mb-1">${totalpriceauto.toFixed(2)}₼</p>
+    `;
+}
+autoPrice.addEventListener("input", auto);
+autoPercent.addEventListener("input", auto);
+creditTimeofAuto.addEventListener("input", auto);
+
+auto()

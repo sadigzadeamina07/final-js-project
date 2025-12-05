@@ -43,11 +43,11 @@
 
 <body>
     <header class="sticky top-0 z-10 bg-white">
-        <div class="container mx-auto py-3">
-            <div class="flex flex-row items-center justify-between gap-8 xl:gap-1000">
+        <div class="container mx-auto">
+            <div class="flex  items-center justify-between gap-8 xl:gap-1000">
 
-                <div class="deskopt-menu hidden md:flex">
-                    <img src="img/ABB_Logo.png" alt="Logo" class="w-[53px] h-[54px]">
+                <div class="deskopt-menu hidden  md:flex md:justify-between">
+                    <img src="img/logo.png" alt="Logo" class="w-[90px] h-[90px]">
 
                     <ul class="flex gap-2">
                         <li class="hover:text-[#134fc3]"><a href="">Fərdi</a></li>
@@ -65,25 +65,36 @@
                     <a href="" class="bg-[#134fc3] text-white">Xidmət şəbəkəsi</a>
                 </div>
 
-                <div class="mobile-menu flex md:hidden">
-                    <img src="img/ABB_Logo.png" alt="Logo" class="w-[10vw] h-[8vh]">
-                    <p class="text-[#82858a] hover:text-black">AZ</p>
-                    <hr />
-                    <a href="tel:937"><i class="fa-solid fa-phone"></i>937</a>
-                    <hr />
-                    <i class="fa-solid fa-bars"></i>
-                </div>
+          
 
             </div>
         </div>
+        <div class="m-0 p-0">
+<div class="mobile-menu flex justify-between  items-center px-[16px] py-[5px] gap-8 md:hidden">
+                    <div class="flex items-center ">
+                        <img src="img/logo.png" alt="Logo" class="w-[60px] h-[60px]">
+                    </div>
+                    <div class=" flex items-center justify-end gap-3 ">
+
+                            <p class="text-[#82858a] hover:text-black">AZ</p>
+                            <hr />
+                            <a href="tel:937" class=""><i class="fa-solid fa-phone"></i>937</a>
+                            <hr />
+                            <i class="fa-solid fa-bars"></i>
+                 
+                    </div>
+                </div>
+        </div>
+
     </header>
     <main>
-        <section>
-            <div class="container mx-auto  py-[64px]">
+        <section class="bg-white">
+            <div class="container mx-auto  py-[30px]">
                 <div class="text-center">
                     <h3 class="text-5xl">İndi hesablayın</h3>
                     <ul class="flex gap-10 mb-6  justify-center my-5">
-                        <li><a href="#credit" class="tab-link bg-black p-[10px] rounded-xl text-white font-semibold">Kredit</a></li>
+                        <li><a href="#credit"
+                                class="tab-link bg-black p-[10px] rounded-xl text-white font-semibold">Kredit</a></li>
                         <li><a href="#deposit" class="tab-link">Depozit</a></li>
                         <li><a href="#auto" class="tab-link">Avtomobil krediti</a></li>
                         <li><a href="#ipoteka" class="tab-link">İpoteka</a></li>
@@ -133,8 +144,8 @@
                             </div>
                             <label for="">
                                 Məbləğ
-                                   <input type="range" name="" min="300" max="3000000" id="depositCalculation">
-                      
+                                <input type="range" name="" min="300" max="3000000" id="depositCalculation">
+
                             </label>
                             <label for="">
                                 Müddət
@@ -145,7 +156,7 @@
                                 <button id="depositmonth" value="24">24</button>
                                 <button id="depositmonth" value="36">36</button>
                             </label>
-                           </div>
+                        </div>
                     </div>
                     <div class="card bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%]  lg:w-[376px] text-white">
 
@@ -154,42 +165,46 @@
                         <hr />
                         <div class="flex justify-between ">
                             <p>Hər ay ödənilən faiz</p>
-                               <p id="monthlyincome"></p>
+                            <p id="monthlyincome"></p>
                             <p>Faiz dərəcəsi</p>
-                               <div id="depositpercent"></div>
+                            <div id="depositpercent"></div>
                         </div>
                         <p></p>
                     </div>
                 </div>
 
                 <div class="tab-body hidden  grid md:grid-cols-2 " id="auto">
-                   <div class=" flex">
-                    <button>Elektrik</button>
-                    <button>Hibrid</button>
-                    <button>Digər</button>
+                    
+                    <div class="flex flex-col ">
+<div class=" flex gap-4 justify-center items-center md:justify-start md:items-start">
+                        <button>Elektrik</button>
+                        <button>Hibrid</button>
+                        <button>Digər</button>
 
-                   </div>
+                    </div>
                     <div class="flex flex-col">
-                        <label for="">
+                        <label for="" class="flex flex-col">
                             Avtomobilin qiyməti
-                            <input type="range" name="" min="300" max="500000" id="">
+                            <input type="range" name="" min="300" max="500000" id="autoPrice">
                         </label>
-                        <label for="">
+                        <label for="" class="flex flex-col">
                             İlkin ödəniş faizi
-                            <input type="range" name="" min="10" max="90" id="">
+                            <input type="range" name="" min="10" max="90" id="autoPercent">
                         </label>
-                        <label for="">
+                        <label for="" class="flex flex-col">
                             Kredit müddəti
-                            <input type="range" name="" min="3" max="60" id="">
+                            <input type="range" name="" min="3" max="60" id="creditTimeofAuto">
 
                         </label>
 
                     </div>
+                    </div>
+                    
                     <div
                         class="card  mx-auto  md:m-0   bg-[#1b63ed] lg:p-[36px] space-y-800 mx-auto  p-[20px] rounded-2xl w-[96%]  lg:w-[376px]">
                         <div class="gap-5 flex flex-col  text-center text-white">
                             <p>Aylıq kredit ödənişi</p>
-                            <div id=""></div>
+                            <div id="totalpriceofauto"></div>
                             <hr />
                             <div class="grid grid-cols-2">
                                 <div class="flex flex-col">

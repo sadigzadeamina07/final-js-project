@@ -10,6 +10,8 @@ const autoPrice = document.getElementById("autoPrice");
 const autoPercent = document.getElementById("autoPercent");
 const creditTimeofAuto = document.getElementById("creditTimeofAuto");
 const totalpriceofauto = document.getElementById("totalpriceofauto");
+const totalpriceof = document.getElementById("totalpriceof");
+const totalpercent = document.getElementById("totalpercent");
 const links = document.querySelectorAll(".tab-link");
 const tabs = document.querySelectorAll(".tab-body")
 links.forEach(link => {
@@ -46,7 +48,6 @@ const depositPercent = {
 let selectedmonth = 3
 let depositMode = "month";
 function deposit() {
-
   const amount = Number(depositprice.value)
   const percentofdeposit = depositPercent[selectedmonth]
   let totalpricedeposit = amount * ((percentofdeposit / 100) * (selectedmonth / 12));
@@ -99,7 +100,8 @@ Digər:14
 }
 let selectedType = "Elektrik"; 
 function auto(){
-let percent  = Number(autoPercent.value)
+    const percentInput = document.querySelector(`.percent-block[data-type="${selectedType}"] .autoPercent`);
+    let percent = Number(percentInput.value);
  let monthly = Number(creditTimeofAuto.value)
 let price  = Number(autoPrice.value)
 /*
@@ -107,16 +109,46 @@ let price  = Number(autoPrice.value)
   let topaymonthly=totalpaid*(autotypepercent[selectedType]/100/12)+totalpaid
 let totalpriceauto = (topaymonthly) / monthly ;*/
   let totalpaid=price-price*(percent/100)
-let r = autotypepercent[selectedType]/100/12;
 let n = monthly;
+if(monthly/12>=3){
+percent=autotypepercent[selectedType]+2
+}
+else if(monthly/12<=2 && monthly/12>1){
+percent=autotypepercent[selectedType]+1
+}
+else{
+percent=autotypepercent[selectedType]
+}
+let r = percent/100/12;
 let totalpriceauto = totalpaid * (r * Math.pow((1+r),n)) / (Math.pow((1+r),n)- 1);
 
 totalpriceofauto.innerHTML = `
         <p class="text-[45px] font-semibold mb-1">${totalpriceauto.toFixed(2)}₼</p>
     `;
+totalpercent.innerHTML = `
+        <p class="text-sm font-semibold mb-1">${autotypepercent[selectedType]}%</p>
+    `;
 }
+
+const btnforcar = document.querySelectorAll('.btnforcar');
+const percentBlocks = document.querySelectorAll('.percent-block');
+
+// hər düyməyə klik
+btnforcar.forEach(btn => {
+    btn.addEventListener("click", () => {
+        selectedType = btn.dataset.type;
+        percentBlocks.forEach(block => block.classList.add("hidden"));
+        document.querySelector(`.percent-block[data-type="${selectedType}"]`).classList.remove("hidden");
+        auto();
+    });
+});
+
+// price və time dəyişəndə yenidən hesabla
 autoPrice.addEventListener("input", auto);
-autoPercent.addEventListener("input", auto);
 creditTimeofAuto.addEventListener("input", auto);
 
+// range input dəyişəndə auto() çağırmaq üçün:
+document.querySelectorAll('.autoPercent').forEach(inp => {
+    inp.addEventListener("input", auto);
+});
 auto()

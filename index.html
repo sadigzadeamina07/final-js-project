@@ -45,11 +45,11 @@
 <body>
     <header class="sticky top-0 z-10 bg-white">
         <div class="container mx-auto">
-            <div class="hidden  md:flex gap-8 ">
+            <div class="hidden  md:flex  md:my-1">
 
-                    <img src="img/logo.png" alt="Logo" class="w-[90px] h-[90px]">
-                    <div class="flex w-full justify-between ">
-      <div class="flex ">
+                <img src="img/logo.png" alt="Logo" class="w-[90px] h-[90px]">
+                <div class="flex w-full justify-between ">
+                    <div class="flex ">
                         <ul class="flex gap-5 font-medium  text-lg items-center ">
                             <li class="hover:text-[#134fc3]  p-3"><a href="">Fərdi</a></li>
                             <li class="hover:text-[#134fc3]"><a href="">Biznes</a></li>
@@ -65,11 +65,13 @@
                         <hr />
                         <a href="tel:937" class="text-[#83868a]"><i class="fa-solid fa-phone "></i>937</a>
                         <hr />
-                     <a href="" class="hover:bg-[#134fc3] bg-[#1b63ed] flex items-center gap-3 justify-center text-white font-bold  p-[20px]  h-[40px]  text-sm rounded-lg"> <i class="fa-solid fa-location-dot text-white "></i>Xidmət şəbəkəsi</a>
+                        <a href=""
+                            class="hover:bg-[#134fc3] bg-[#1b63ed] flex items-center gap-3 justify-center text-white font-bold  p-[20px]  h-[40px]  text-sm rounded-lg">
+                            <i class="fa-solid fa-location-dot text-white "></i>Xidmət şəbəkəsi</a>
 
                     </div>
-                    </div>
-              
+                </div>
+
 
 
             </div>
@@ -182,20 +184,31 @@
 
                     <div class="flex flex-col ">
                         <div class=" flex gap-4 justify-center items-center md:justify-start md:items-start">
-                            <button>Elektrik</button>
-                            <button>Hibrid</button>
-                            <button>Digər</button>
-
+              <button class="btnforcar" data-type="Elektrik">Elektrik</button>
+    <button class="btnforcar" data-type="Hibrid">Hibrid</button>
+    <button class="btnforcar" data-type="Digər">Digər</button>
                         </div>
                         <div class="flex flex-col">
                             <label for="" class="flex flex-col">
                                 Avtomobilin qiyməti
                                 <input type="range" name="" min="300" max="500000" id="autoPrice">
                             </label>
-                            <label for="" class="flex flex-col">
-                                İlkin ödəniş faizi
-                                <input type="range" name="" min="10" max="90" id="autoPercent">
-                            </label>
+                          <label class="flex flex-col percent-block" data-type="Elektrik">
+    İlkin ödəniş faizi
+    <input type="range" min="10" max="90" class="autoPercent">
+</label>
+
+<label class="flex flex-col percent-block hidden" data-type="Hibrid">
+    İlkin ödəniş faizi
+    <input type="range" min="20" max="90" class="autoPercent">
+</label>
+
+<label class="flex flex-col percent-block hidden" data-type="Digər">
+    İlkin ödəniş faizi
+    <input type="range" min="40" max="90" class="autoPercent">
+</label>
+
+
                             <label for="" class="flex flex-col">
                                 Kredit müddəti
                                 <input type="range" name="" min="3" max="60" id="creditTimeofAuto">
@@ -218,7 +231,7 @@
                                 </div>
                                 <div class="flex flex-col">
                                     <p>İllik faiz dərəcəsi</p>
-                                    <div id="totalpriceof"></div>
+                                    <div id="totalpercent"></div>
                                 </div>
                                 <div class="flex  flex-col">
                                     <p>Komissiya (0.5%, min 20 AZN)</p>
@@ -226,7 +239,7 @@
                                 </div>
                                 <div class="flex flex-col">
                                     <p>Ümumi ödəniş</p>
-                                    <div id=""></div>
+                                    <div id="totalpriceof"></div>
                                 </div>
                             </div>
                             <button class=" text-black btn font-semibold bg-white  w-full p-[20px] rounded-lg">Davam

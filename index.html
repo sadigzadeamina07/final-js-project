@@ -10,8 +10,9 @@
 
     <style>
         header hr {
-            width: 2px;
-            height: 100px;
+            width: 1px;
+            height: 40px;
+            background-color: #dddddd;
         }
 
         .container {
@@ -44,46 +45,50 @@
 <body>
     <header class="sticky top-0 z-10 bg-white">
         <div class="container mx-auto">
-            <div class="flex  items-center justify-between gap-8 xl:gap-1000">
+            <div class="hidden  md:flex gap-8 ">
 
-                <div class="deskopt-menu hidden  md:flex md:justify-between">
                     <img src="img/logo.png" alt="Logo" class="w-[90px] h-[90px]">
+                    <div class="flex w-full justify-between ">
+      <div class="flex ">
+                        <ul class="flex gap-5 font-medium  text-lg items-center ">
+                            <li class="hover:text-[#134fc3]  p-3"><a href="">Fərdi</a></li>
+                            <li class="hover:text-[#134fc3]"><a href="">Biznes</a></li>
+                            <li class="hover:text-[#134fc3]"><a href="">Haqqımızda</a></li>
+                            <li class="hover:text-[#134fc3]"><a href="">İnvestorlarla əlaqə</a></li>
+                        </ul>
+                    </div>
 
-                    <ul class="flex gap-2">
-                        <li class="hover:text-[#134fc3]"><a href="">Fərdi</a></li>
-                        <li class="hover:text-[#134fc3]"><a href="">Biznes</a></li>
-                        <li class="hover:text-[#134fc3]"><a href="">Haqqımızda</a></li>
-                        <li class="hover:text-[#134fc3]"><a href="">İnvestorlarla əlaqə</a></li>
-                    </ul>
+                    <div class="flex  items-center justify-end gap-4">
+                        <i class="fa-light fa-magnifying-glass text-[#83868a]"></i>
+                        <hr />
+                        <p class="text-[#83868a]">AZ</p>
+                        <hr />
+                        <a href="tel:937" class="text-[#83868a]"><i class="fa-solid fa-phone "></i>937</a>
+                        <hr />
+                     <a href="" class="hover:bg-[#134fc3] bg-[#1b63ed] flex items-center gap-3 justify-center text-white font-bold  p-[20px]  h-[40px]  text-sm rounded-lg"> <i class="fa-solid fa-location-dot text-white "></i>Xidmət şəbəkəsi</a>
 
-                    <i class="fa-light fa-magnifying-glass"></i>
-                    <hr />
-                    <p>AZ</p>
-                    <hr />
-                    <a href="tel:937"><i class="fa-solid fa-phone"></i>937</a>
-                    <hr />
-                    <a href="" class="bg-[#134fc3] text-white">Xidmət şəbəkəsi</a>
-                </div>
+                    </div>
+                    </div>
+              
 
-          
 
             </div>
         </div>
-        <div class="m-0 p-0">
-<div class="mobile-menu flex justify-between  items-center px-[16px] py-[5px] gap-8 md:hidden">
-                    <div class="flex items-center ">
-                        <img src="img/logo.png" alt="Logo" class="w-[60px] h-[60px]">
-                    </div>
-                    <div class=" flex items-center justify-end gap-3 ">
-
-                            <p class="text-[#82858a] hover:text-black">AZ</p>
-                            <hr />
-                            <a href="tel:937" class=""><i class="fa-solid fa-phone"></i>937</a>
-                            <hr />
-                            <i class="fa-solid fa-bars"></i>
-                 
-                    </div>
+        <div class="container m-0 p-0 ">
+            <div class="mobile-menu flex justify-between  items-center px-[16px] py-[5px] gap-8 md:hidden">
+                <div class="flex items-center ">
+                    <img src="img/logo.png" alt="Logo" class="w-[60px] h-[60px]">
                 </div>
+                <div class=" flex items-center justify-end gap-3 ">
+
+                    <p class="text-[#82858a] hover:text-black">AZ</p>
+                    <hr />
+                    <a href="tel:937" class="text-[#83868a]"><i class="fa-solid fa-phone "></i>937</a>
+                    <hr />
+                    <i class="fa-solid fa-bars"></i>
+
+                </div>
+            </div>
         </div>
 
     </header>
@@ -174,32 +179,32 @@
                 </div>
 
                 <div class="tab-body hidden  grid md:grid-cols-2 " id="auto">
-                    
+
                     <div class="flex flex-col ">
-<div class=" flex gap-4 justify-center items-center md:justify-start md:items-start">
-                        <button>Elektrik</button>
-                        <button>Hibrid</button>
-                        <button>Digər</button>
+                        <div class=" flex gap-4 justify-center items-center md:justify-start md:items-start">
+                            <button>Elektrik</button>
+                            <button>Hibrid</button>
+                            <button>Digər</button>
 
-                    </div>
-                    <div class="flex flex-col">
-                        <label for="" class="flex flex-col">
-                            Avtomobilin qiyməti
-                            <input type="range" name="" min="300" max="500000" id="autoPrice">
-                        </label>
-                        <label for="" class="flex flex-col">
-                            İlkin ödəniş faizi
-                            <input type="range" name="" min="10" max="90" id="autoPercent">
-                        </label>
-                        <label for="" class="flex flex-col">
-                            Kredit müddəti
-                            <input type="range" name="" min="3" max="60" id="creditTimeofAuto">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="" class="flex flex-col">
+                                Avtomobilin qiyməti
+                                <input type="range" name="" min="300" max="500000" id="autoPrice">
+                            </label>
+                            <label for="" class="flex flex-col">
+                                İlkin ödəniş faizi
+                                <input type="range" name="" min="10" max="90" id="autoPercent">
+                            </label>
+                            <label for="" class="flex flex-col">
+                                Kredit müddəti
+                                <input type="range" name="" min="3" max="60" id="creditTimeofAuto">
 
-                        </label>
+                            </label>
 
+                        </div>
                     </div>
-                    </div>
-                    
+
                     <div
                         class="card  mx-auto  md:m-0   bg-[#1b63ed] lg:p-[36px] space-y-800 mx-auto  p-[20px] rounded-2xl w-[96%]  lg:w-[376px]">
                         <div class="gap-5 flex flex-col  text-center text-white">

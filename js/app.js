@@ -119,15 +119,44 @@ percent=autotypepercent[selectedType]+1
 else{
 percent=autotypepercent[selectedType]
 }
-let r = percent/100/12;
-let totalpriceauto = totalpaid * (r * Math.pow((1+r),n)) / (Math.pow((1+r),n)- 1);
 
-totalpriceofauto.innerHTML = `
-        <p class="text-[45px] font-semibold mb-1">${totalpriceauto.toFixed(2)}₼</p>
+  let r = percent / 100 / 12;
+/*
+let totalpriceauto = totalpaid * (r * Math.pow((1+r),n)) / (Math.pow((1+r),n)- 1);
+   */
+    // Aylıq ödəniş
+    let monthlyPayment = totalpaid * (r * Math.pow((1+r), monthly)) / (Math.pow((1+r), monthly) - 1);
+
+    // Komissiya
+    let commissionAmount = totalpaid * 0.005;
+    if(commissionAmount < 20) commissionAmount = 20;
+
+    // Ümumi ödəniş
+    let totalPayment = monthlyPayment * monthly + commissionAmount;
+
+    // HTML yazılışı
+    totalpriceofauto.innerHTML = `
+        <p class="text-[45px] font-semibold mb-1">${monthlyPayment.toFixed(2)}₼</p>
     `;
-totalpercent.innerHTML = `
-        <p class="text-sm font-semibold mb-1">${autotypepercent[selectedType]}%</p>
+
+    document.getElementById("komission").innerHTML = `
+        <p class="text-sm font-semibold mb-1">${totalpaid.toFixed(2)} ₼</p>
     `;
+
+    totalpercent.innerHTML = `
+        <p class="text-sm font-semibold mb-1">${percent}%</p>
+    `;
+
+    document.getElementById("komissiya").innerHTML = `
+        <p class="text-sm font-semibold mb-1">${commissionAmount.toFixed(2)} ₼</p>
+    `;
+
+    document.getElementById("totalpriceof").innerHTML = `
+        <p class="text-sm font-semibold mb-1">${totalPayment.toFixed(2)} ₼</p>
+    `  
+
+
+    ;
 }
 
 const btnforcar = document.querySelectorAll('.btnforcar');

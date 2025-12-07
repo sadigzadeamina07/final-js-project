@@ -107,27 +107,46 @@
                         <li><a href="#ipoteka" class="tab-link">İpoteka</a></li>
                     </ul>
                 </div>
-
-
                 <div id="credit" class="tab-body grid md:grid-cols-2 gap-5">
-                    <div class="rangeler flex flex-col">
-                        <label class="flex flex-col">Məbləğ
-                            <input class="w-[70%] h-2 rounded-lg" type="range" min="300" max="50000" id="price">
-                            <div class="flex justify-between w-[70%]">
-                                <p>300₼</p>
-                                <p>50000₼</p>
+                    <div class="rangeler flex flex-col gap-5">
+                        <label class="flex  gap-1 flex-col ml-[5px] ">
+                            <span class="text-left text-[rgb(122,125,130)]">Məbləğ</span>
+                            <div class="flex  gap-1 flex-col">
+                                <input class="w-[98%] h-2 rounded-lg" type="range" min="300" max="50000" id="price">
+                                <div class="flex justify-between w-[98%]">
+                                    <p class="text-[rgb(122,125,130)]">300₼</p>
+                                    <p class="text-[rgb(122,125,130)]">50000₼</p>
+                                </div>
                             </div>
+
                         </label>
 
-                        <label class="flex flex-col">Müddət
-                            <input class="w-[70%] h-2 rounded-lg" type="range" min="3" max="59" id="time">
+                        <label class="flex flex-col gap-1 ml-[5px]">
+                            <span class="text-left text-[rgb(122,125,130)]"> Müddət</span>
+                            <div class="flex flex-col gap-1">
+                                <input class="w-[98%] h-2 rounded-lg " type="range" min="3" max="59" id="time">
+                                <div class="flex justify-between w-[98%]">
+                                    <p class="text-[rgb(122,125,130)]">3 ay</p>
+                                    <p class="text-[rgb(122,125,130)]">59 ay</p>
+                                </div>
+                            </div>
+
+                        </label>
+                        <label class="flex flex-col gap-1 ml-[5px]">
+                            <span class="text-left text-[rgb(122,125,130)]"> Faiz dərəcəsi</span>
+                            <div class="flex flex-col gap-1">
+                                <input type="range" class="w-[98%] h-2 rounded-lg" min="10.9" max="31.9" id="percent">
+                                <div class="flex justify-between w-[98%]">
+                                    <p class="text-[rgb(122,125,130)]">10.9 %</p>
+                                    <p class="text-[rgb(122,125,130)]">31.9 %</p>
+                                </div>
+                            </div>
+
                         </label>
 
-                        <label class="flex flex-col mb-5">Faiz dərəcəsi
-                            <input type="range" class="w-[70%] h-2 rounded-lg" min="10.9" max="31.9" id="percent">
-                        </label>
                     </div>
-                    <div class="card bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%] lg:w-[376px] text-white">
+                    <div
+                        class="card mx-auto bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%] lg:w-[376px] text-white">
                         <p>Aylıq kredit ödənişi</p>
                         <div id="totalprice"></div>
                         <button
@@ -149,9 +168,17 @@
                                     <button>Usd</button>
                                 </div>
                             </div>
-                            <label for="">
-                                Məbləğ
-                                <input type="range" name="" min="300" max="3000000" id="depositCalculation">
+                            <label class="flex flex-col gap-1 ml-[5px]">
+                                <span class="text-left text-[rgb(122,125,130)]"> Məbləğ</span>
+                                <div class="flex flex-col gap-1">
+                                    <input class="w-[98%] h-2 rounded-lg " type="range" name="" min="300" max="3000000"
+                                        id="depositCalculation">
+
+                                    <div class="flex justify-between w-[98%]">
+                                        <p class="text-[rgb(122,125,130)]">300 ₼</p>
+                                        <p class="text-[rgb(122,125,130)]">3000000 ₼</p>
+                                    </div>
+                                </div>
 
                             </label>
                             <label for="">
@@ -165,7 +192,8 @@
                             </label>
                         </div>
                     </div>
-                    <div class="card bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%]  lg:w-[376px] text-white">
+                    <div
+                        class="card  mx-auto bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%]  lg:w-[376px] text-white">
 
                         <p>Aylıq kredit ödənişi</p>
                         <div id="totalpriceofdeposit"></div>
@@ -183,15 +211,23 @@
                 <div class="tab-body hidden  grid md:grid-cols-2 " id="auto">
 
                     <div class="flex flex-col ">
-                        <div class=" flex gap-4 justify-center items-center md:justify-start md:items-start">
+                        <div class=" flex gap-4 justify-center items-center md:justify-start md:items-start ml-[5px]">
                             <button class="btnforcar" data-type="Elektrik">Elektrik</button>
                             <button class="btnforcar" data-type="Hibrid">Hibrid</button>
                             <button class="btnforcar" data-type="Digər">Digər</button>
                         </div>
                         <div class="flex flex-col">
-                            <label for="" class="flex flex-col">
-                                Avtomobilin qiyməti
-                                <input type="range" name="" min="300" max="500000" id="autoPrice">
+                            <label class="flex  gap-1 flex-col ml-[5px] ">
+                                <span class="text-left text-[rgb(122,125,130)]"> Avtomobilin qiyməti</span>
+                                <div class="flex  gap-1 flex-col">
+                                    <input type="range" class="w-[98%] h-2 rounded-lg" name="" min="300" max="500000"
+                                        id="autoPrice">
+                                    <div class="flex justify-between w-[98%]">
+                                        <p class="text-[rgb(122,125,130)]">300₼</p>
+                                        <p class="text-[rgb(122,125,130)]">500000 ₼</p>
+                                    </div>
+                                </div>
+
                             </label>
                             <label class="flex flex-col percent-block" data-type="Elektrik">
                                 İlkin ödəniş faizi
@@ -248,53 +284,53 @@
                     </div>
 
                 </div>
-             <div class="tab-body hidden grid md:grid-cols-2" id="ipoteka">
-    <div class="rangeler">
-        <label class="flex flex-col">
-            Kredit məbləği
-            <input type="range" id="kredit" min="1" max="500000"  value="100000">
-        </label>
+                <div class="tab-body hidden grid md:grid-cols-2" id="ipoteka">
+                    <div class="rangeler">
+                        <label class="flex flex-col">
+                            Kredit məbləği
+                            <input type="range" id="kredit" min="1" max="500000" value="100000">
+                        </label>
 
-        <label class="flex flex-col">
-            İllik faiz dərəcəsi
-          <input type="range" id="faiz" min="1" max="25" step="0.1" value="12">
-        </label>
+                        <label class="flex flex-col">
+                            İllik faiz dərəcəsi
+                            <input type="range" id="faiz" min="1" max="25" step="0.1" value="12">
+                        </label>
 
-        <label>
-            Müddət
-            <button class="muddet" data-m="48">4 il</button>
-            <button class="muddet" data-m="84">7 il</button>
-            <button class="muddet" data-m="96">8 il</button>
-            <button class="muddet" data-m="132">11 il</button>
-            <button class="muddet" data-m="144">12 il</button>
-            <button class="muddet" data-m="156">13 il</button>
-        </label>
-    </div>
+                        <label>
+                            Müddət
+                            <button class="muddet" data-m="48">4 il</button>
+                            <button class="muddet" data-m="84">7 il</button>
+                            <button class="muddet" data-m="96">8 il</button>
+                            <button class="muddet" data-m="132">11 il</button>
+                            <button class="muddet" data-m="144">12 il</button>
+                            <button class="muddet" data-m="156">13 il</button>
+                        </label>
+                    </div>
 
-    <div class="card bg-[#1b63ed] p-6 rounded-xl text-white">
-        <div class="text-center">
-            <p>Aylıq kredit ödənişi</p>
-            <div id="ayliq"></div>
-        </div>
+                    <div class="card bg-[#1b63ed] p-6 rounded-xl text-white">
+                        <div class="text-center">
+                            <p>Aylıq kredit ödənişi</p>
+                            <div id="ayliq"></div>
+                        </div>
 
-        <hr class="my-4">
+                        <hr class="my-4">
 
-        <div class="grid grid-cols-2">
-            <div>
-                <p>Kredit məbləği</p>
-                <div id="showCreditPrice"></div>
-            </div>
-            <div>
-                <p>İllik faiz dərəcəsi</p>
-                <div id="faiz-output"></div>
-            </div>
-        </div>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                <p>Kredit məbləği</p>
+                                <div id="showCreditPrice"></div>
+                            </div>
+                            <div>
+                                <p>İllik faiz dərəcəsi</p>
+                                <div id="faiz-output"></div>
+                            </div>
+                        </div>
 
-        <button class="btn bg-white text-black w-full mt-4 p-3 rounded-lg">
-            Davam et
-        </button>
-    </div>
-</div>
+                        <button class="btn bg-white text-black w-full mt-4 p-3 rounded-lg">
+                            Davam et
+                        </button>
+                    </div>
+                </div>
 
 
             </div>

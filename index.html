@@ -97,9 +97,9 @@
     <main>
         <section class="bg-white">
             <div class="container mx-auto  py-[30px]">
-                <div class="text-center">
+                <div class="text-center ">
                     <h3 class="text-5xl">İndi hesablayın</h3>
-                    <ul class="flex gap-10 mb-6  justify-center my-5">
+                    <ul class="flex gap-10 mb-6  flex-wrap justify-center my-5">
                         <li><a href="#credit"
                                 class="tab-link bg-black p-[10px] rounded-xl text-white font-semibold">Kredit</a></li>
                         <li><a href="#deposit" class="tab-link">Depozit</a></li>
@@ -184,29 +184,29 @@
 
                     <div class="flex flex-col ">
                         <div class=" flex gap-4 justify-center items-center md:justify-start md:items-start">
-              <button class="btnforcar" data-type="Elektrik">Elektrik</button>
-    <button class="btnforcar" data-type="Hibrid">Hibrid</button>
-    <button class="btnforcar" data-type="Digər">Digər</button>
+                            <button class="btnforcar" data-type="Elektrik">Elektrik</button>
+                            <button class="btnforcar" data-type="Hibrid">Hibrid</button>
+                            <button class="btnforcar" data-type="Digər">Digər</button>
                         </div>
                         <div class="flex flex-col">
                             <label for="" class="flex flex-col">
                                 Avtomobilin qiyməti
                                 <input type="range" name="" min="300" max="500000" id="autoPrice">
                             </label>
-                          <label class="flex flex-col percent-block" data-type="Elektrik">
-    İlkin ödəniş faizi
-    <input type="range" min="10" max="90" class="autoPercent">
-</label>
+                            <label class="flex flex-col percent-block" data-type="Elektrik">
+                                İlkin ödəniş faizi
+                                <input type="range" min="10" max="90" class="autoPercent">
+                            </label>
 
-<label class="flex flex-col percent-block hidden" data-type="Hibrid">
-    İlkin ödəniş faizi
-    <input type="range" min="20" max="90" class="autoPercent">
-</label>
+                            <label class="flex flex-col percent-block hidden" data-type="Hibrid">
+                                İlkin ödəniş faizi
+                                <input type="range" min="20" max="90" class="autoPercent">
+                            </label>
 
-<label class="flex flex-col percent-block hidden" data-type="Digər">
-    İlkin ödəniş faizi
-    <input type="range" min="40" max="90" class="autoPercent">
-</label>
+                            <label class="flex flex-col percent-block hidden" data-type="Digər">
+                                İlkin ödəniş faizi
+                                <input type="range" min="40" max="90" class="autoPercent">
+                            </label>
 
 
                             <label for="" class="flex flex-col">
@@ -236,7 +236,6 @@
                                 <div class="flex  flex-col">
                                     <p>Komissiya (0.5%, min 20 AZN)</p>
                                     <div id="komissiya"></div>
-
                                 </div>
                                 <div class="flex flex-col">
                                     <p>Ümumi ödəniş</p>
@@ -249,41 +248,54 @@
                     </div>
 
                 </div>
-                <div class="tab-body hidden grid md:grid-cols-2 " id="ipoteka">
-                    <div class="rangeler">
-                        <label for="">
-                            Kredit
-                            <input type="range" name="" min="1" max="500000" id="">
-                        </label>
-                        <label for="">
-                            Kredit
-                            <input type="range" name="" min="1" max="25" id="">
-                        </label>
+             <div class="tab-body hidden grid md:grid-cols-2" id="ipoteka">
+    <div class="rangeler">
+        <label class="flex flex-col">
+            Kredit məbləği
+            <input type="range" id="kredit" min="1" max="500000"  value="100000">
+        </label>
 
-                    </div>
-                    <div
-                        class="card   mx-auto  md:m-0    bg-[#1b63ed] lg:p-[36px] space-y-800  p-[20px] rounded-2xl w-[96%]  lg:w-[376px]">
-                        <div class="gap-5 flex flex-col  text-center text-white">
-                            <p>Aylıq kredit ödənişi</p>
-                            <div id=""></div>
-                            <hr />
-                            <div class="grid grid-cols-2">
-                                <div class="flex flex-col">
-                                    <p>Kredit məbləği</p>
-                                    <div id="komission"></div>
-                                </div>
-                                <div class="flex flex-col">
-                                    <p>İllik faiz dərəcəsi</p>
-                                    <div id="totalpriceof"></div>
-                                </div>
-                            </div>
-                            <button
-                                class=" text-black btn font-semibold bg-white text-md  w-full p-[20px] rounded-lg">Davam
-                                et</button>
-                        </div>
-                    </div>
+        <label class="flex flex-col">
+            İllik faiz dərəcəsi
+          <input type="range" id="faiz" min="1" max="25" step="0.1" value="12">
+        </label>
 
-                </div>
+        <label>
+            Müddət
+            <button class="muddet" data-m="48">4 il</button>
+            <button class="muddet" data-m="84">7 il</button>
+            <button class="muddet" data-m="96">8 il</button>
+            <button class="muddet" data-m="132">11 il</button>
+            <button class="muddet" data-m="144">12 il</button>
+            <button class="muddet" data-m="156">13 il</button>
+        </label>
+    </div>
+
+    <div class="card bg-[#1b63ed] p-6 rounded-xl text-white">
+        <div class="text-center">
+            <p>Aylıq kredit ödənişi</p>
+            <div id="ayliq"></div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="grid grid-cols-2">
+            <div>
+                <p>Kredit məbləği</p>
+                <div id="showCreditPrice"></div>
+            </div>
+            <div>
+                <p>İllik faiz dərəcəsi</p>
+                <div id="faiz-output"></div>
+            </div>
+        </div>
+
+        <button class="btn bg-white text-black w-full mt-4 p-3 rounded-lg">
+            Davam et
+        </button>
+    </div>
+</div>
+
 
             </div>
 

@@ -158,11 +158,11 @@
                     <div class="  flex flex-col   " id="deposit-range">
                         <div class="flex flex-col ">
                             <div class="flex justify-between">
+<div class="border border-[rgb(122,125,130)] text-[rgb(122,125,130)] bg-[rgb(179,182,187)] ml-[5px]">
+    <button id="every-month" class="border border-r-[rgb(122,125,130)]">Hər ay</button>
+    <button id="every-year">Hər il</button>
+</div>
 
-                                <div>
-                                    <button id="every-month">Hər ay</button>
-                                    <button id="every-year">Hər il</button>
-                                </div>
                                 <div>
                                     <button>Azn</button>
                                     <button>Usd</button>
@@ -199,10 +199,16 @@
                         <div id="totalpriceofdeposit"></div>
                         <hr />
                         <div class="flex justify-between ">
-                            <p>Hər ay ödənilən faiz</p>
+                            <div class="flex flex-col">
+     <p>Hər ay ödənilən faiz</p>
+
                             <p id="monthlyincome"></p>
-                            <p>Faiz dərəcəsi</p>
+                            </div>
+                       <div class="flex flex-col">
+   <p>Faiz dərəcəsi</p>
                             <div id="depositpercent"></div>
+                       </div>
+                         
                         </div>
                         <p></p>
                     </div>

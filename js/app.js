@@ -183,43 +183,38 @@ document.querySelectorAll('.autoPercent').forEach(inp => {
 auto()
 //ipoteka
 
-const kredit = document.getElementById("kredit");
-const faiz = document.getElementById("faiz");
-const muddetBtns = document.querySelectorAll(".muddet");
-const aylıqDiv = document.getElementById("ayliq");
-const komissionDiv = document.getElementById("showCreditPrice");
-const faizOutputDiv = document.getElementById("faiz-output");
 
-let muddet = 48; // aylarla
-
-function hesabla(k, f, m) {
-let r = f / 12 / 100; // aylıq faiz
-return k * (r / (1 - Math.pow(1 + r, -m)));
-
-}
-
+document.addEventListener("DOMContentLoaded", () => {
+   
+const Mortgageprice = document.getElementById("Mortgageprice");
+const Mortgageyear= document.getElementById("Mortgageyear");
+const percentbtn = document.querySelectorAll(".percent");
+let yearPercent=4;
 function update() {
-    let k = parseInt(kredit.value) || 100000;
-    let f = parseFloat(faiz.value) || 12;
+       let mortageprice = Number(Mortgageprice.value);
+        let r = yearPercent / 12 / 100;
+        let n = Number(Mortgageyear.value) * 12;
+        let pow = Math.pow(1 + r, n);
+        let perMonth = mortageprice * (r * pow / (pow - 1));
+    document.getElementById("Mortgageformonth").innerHTML =
+        `<p class="text-sm font-semibold mb-1">${perMonth.toFixed(2)} ₼</p>`;
 
-    let aylıq = hesabla(k, f, muddet);
+    document.getElementById("showpriceMortage").innerHTML =
+        `<p class="text-sm font-semibold mb-1">${mortageprice.toFixed(2)} ₼</p>`;
 
-    aylıqDiv.textContent = aylıq.toFixed(2) + " ₼";
-    komissionDiv.textContent = (k * 0.01).toFixed(2) + " ₼"; // komissiya ayrıca göstərilir
-    faizOutputDiv.textContent = f + " %";
+    document.getElementById("PercentforYear").innerHTML =
+        `<p class="text-sm font-semibold mb-1">${yearPercent.toFixed(2)} %</p>`;
 }
-
-// müddət düymələri
-muddetBtns.forEach(btn => {
+percentbtn.forEach(btn => {
     btn.addEventListener("click", () => {
-        muddet = parseInt(btn.dataset.m); // həmişə ay sayını daxil et
+        yearPercent = parseInt(btn.dataset.percentM);
+        console.log(yearPercent)
         update();
     });
 });
-
-// slider dəyişdikdə hesablanır
-kredit.addEventListener("input", update);
-faiz.addEventListener("input", update);
-
-// ilk hesablanma
+Mortgageprice.addEventListener("input", update);
+Mortgageyear.addEventListener("input", update);
+// percentbtn.addEventListener("input", update);
 update();
+
+});

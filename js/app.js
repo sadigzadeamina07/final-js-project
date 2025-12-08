@@ -184,37 +184,36 @@ auto()
 //ipoteka
 
 
-document.addEventListener("DOMContentLoaded", () => {
-   
-const Mortgageprice = document.getElementById("Mortgageprice");
-const Mortgageyear= document.getElementById("Mortgageyear");
-const percentbtn = document.querySelectorAll(".percent");
-let yearPercent=4;
-function update() {
-       let mortageprice = Number(Mortgageprice.value);
-        let r = yearPercent / 12 / 100;
-        let n = Number(Mortgageyear.value) * 12;
-        let pow = Math.pow(1 + r, n);
-        let perMonth = mortageprice * (r * pow / (pow - 1));
-    document.getElementById("Mortgageformonth").innerHTML =
-        `<p class="text-sm font-semibold mb-1">${perMonth.toFixed(2)} ₼</p>`;
+    const Mortgageprice = document.getElementById("Mortgageprice");
+    const Mortgageyear = document.getElementById("Mortgageyear");
+    const percentbtn = document.querySelectorAll(".percent");
 
-    document.getElementById("showpriceMortage").innerHTML =
-        `<p class="text-sm font-semibold mb-1">${mortageprice.toFixed(2)} ₼</p>`;
+    let yearPercent = 4;
 
-    document.getElementById("PercentforYear").innerHTML =
-        `<p class="text-sm font-semibold mb-1">${yearPercent.toFixed(2)} %</p>`;
-}
-percentbtn.forEach(btn => {
-    btn.addEventListener("click", () => {
-        yearPercent = parseInt(btn.dataset.percentM);
-        console.log(yearPercent)
-        update();
+    function update() {
+        const mortageprice = Number(Mortgageprice.value);
+        const n = Number(Mortgageyear.value) * 12;
+        const r = yearPercent / 12 / 100;
+        const pow = Math.pow(1 + r, n);
+        const perMonth = mortageprice * (r * pow / (pow - 1));
+
+        document.getElementById("Mortgageformonth").innerHTML =
+            `<p class="text-sm font-semibold mb-1">${perMonth.toFixed(2)} ₼</p>`;
+        document.getElementById("showpriceMortage").innerHTML =
+            `<p class="text-sm font-semibold mb-1">${mortageprice.toFixed(2)} ₼</p>`;
+        document.getElementById("PercentforYear").innerHTML =
+            `<p class="text-sm font-semibold mb-1">${yearPercent.toFixed(2)} %</p>`;
+    }
+
+    percentbtn.forEach(btn => {
+        btn.addEventListener("click", () => {
+            yearPercent = parseInt(btn.dataset.percentM);
+            update();
+        });
     });
-});
-Mortgageprice.addEventListener("input", update);
-Mortgageyear.addEventListener("input", update);
-// percentbtn.addEventListener("input", update);
-update();
 
-});
+    Mortgageprice.addEventListener("input", update);
+    Mortgageyear.addEventListener("input", update);
+
+    update();
+

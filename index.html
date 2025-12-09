@@ -97,16 +97,32 @@
     <main>
         <section class="bg-white">
             <div class="container mx-auto  py-[30px]">
-                <div class="text-center ">
-                    <h3 class="text-5xl">İndi hesablayın</h3>
-                    <ul class="flex gap-10 mb-6  flex-wrap justify-center my-5">
-                        <li><a href="#credit"
-                                class="tab-link bg-black p-[10px] rounded-xl text-white font-semibold">Kredit</a></li>
-                        <li><a href="#deposit" class="tab-link">Depozit</a></li>
-                        <li><a href="#auto" class="tab-link">Avtomobil krediti</a></li>
-                        <li><a href="#ipoteka" class="tab-link">İpoteka</a></li>
-                    </ul>
-                </div>
+      <nav aria-label="Calculator tabs" class="text-center">
+  <ul id="tabList" class="flex gap-1 flex-wrap justify-center mb-6">
+    <li>
+      <a href="#credit" class="tab-link bg-black text-white px-4 py-2 rounded-xl font-semibold">
+        Kredit
+      </a>
+    </li>
+    <li>
+      <a href="#deposit" class="tab-link px-4 py-2 rounded-xl font-semibold text-[rgb(122,125,130)]">
+        Depozit
+      </a>
+    </li>
+    <li>
+      <a href="#auto" class="tab-link px-4 py-2 rounded-xl font-semibold text-[rgb(122,125,130)]">
+        Avtomobil krediti
+      </a>
+    </li>
+    <li>
+      <a href="#ipoteka" class="tab-link px-4 py-2 rounded-xl font-semibold text-[rgb(122,125,130)]">
+        İpoteka
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
                 <div id="credit" class="tab-body grid md:grid-cols-2 gap-5">
                     <div class="rangeler flex flex-col gap-5">
                         <label class="flex  gap-1 flex-col ml-[5px] ">
@@ -158,9 +174,13 @@
                     <div class="  flex flex-col   " id="deposit-range">
                         <div class="flex flex-col ">
                             <div class="flex justify-between">
-<div class="border border-[rgb(122,125,130)] text-[rgb(122,125,130)] bg-[rgb(179,182,187)] ml-[5px]">
-    <button id="every-month" class="border border-r-[rgb(122,125,130)]">Hər ay</button>
-    <button id="every-year">Hər il</button>
+<div class="border border-[rgb(122,125,130)] text-[rgb(122,125,130)] bg-[#f5f5f6] rounded-md  ml-[5px]">
+     <button id="every-month" class="px-3 py-1 border border-gray-300 rounded-md  bg-[#f5f5f6] hover:bg-gray-100 transition-colors active:bg-white active:text-black">
+      Hər ay
+    </button>
+    <button id="every-year" class="px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black">
+      Hər il
+    </button>
 </div>
 
                                 <div>
@@ -218,9 +238,9 @@
 
                     <div class="flex flex-col ">
                         <div class=" flex gap-4 justify-center items-center md:justify-start md:items-start ml-[5px]">
-                            <button class="btnforcar" data-type="Elektrik">Elektrik</button>
-                            <button class="btnforcar" data-type="Hibrid">Hibrid</button>
-                            <button class="btnforcar" data-type="Digər">Digər</button>
+                            <button class="btnforcar bg-black text-white px-4 py-2 rounded-xl font-semibold" data-type="Elektrik" >Elektrik</button>
+                            <button class="btnforcar px-4 py-2 rounded-xl font-semibold text-[rgb(122,125,130)]" data-type="Hibrid">Hibrid</button>
+                            <button class="btnforcar  px-4 py-2 rounded-xl font-semibold text-[rgb(122,125,130)] " data-type="Digər">Digər</button>
                         </div>
                         <div class="flex flex-col">
                             <label class="flex  gap-1 flex-col ml-[5px] ">
@@ -345,6 +365,35 @@
         </section>
     </main>
     <script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab-link");
+    const tabs2 = document.querySelectorAll(".btnforcar");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", function (e) {
+        e.preventDefault();
+        tabs.forEach(t => {
+          t.classList.remove("bg-black", "text-white");
+          t.classList.add("text-gray-500");
+        });
+
+        this.classList.add("bg-black", "text-white");
+        this.classList.remove("text-gray-500");
+      });
+    }); 
+     });
+ 
+  const buttons = document.querySelectorAll("button");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    buttons.forEach(b => b.classList.remove("bg-white", "text-black")); // əvvəlki aktivləri sil
+    btn.classList.add("bg-white", "text-black"); // kliklənmiş aktiv olsun
+  });
+});
+</script>
+
 </body>
 
 </html>

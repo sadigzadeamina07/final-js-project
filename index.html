@@ -175,10 +175,10 @@
                         <div class="flex flex-col ">
                             <div class="flex justify-between">
 <div class="border border-[rgb(122,125,130)] text-[rgb(122,125,130)] bg-[#f5f5f6] rounded-md  ml-[5px]">
-     <button id="every-month" class="px-3 py-1 border border-gray-300 rounded-md  bg-[#f5f5f6] hover:bg-gray-100 transition-colors active:bg-white active:text-black">
+     <button id="every-month" class="buttonfortime px-3 py-1 border border-gray-300 rounded-md  bg-[#f5f5f6] hover:bg-gray-100 transition-colors active:bg-white active:text-black">
       Hər ay
     </button>
-    <button id="every-year" class="px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black">
+    <button id="every-year" class=" buttonfortime px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black">
       Hər il
     </button>
 </div>
@@ -237,10 +237,10 @@
                 <div class="tab-body hidden  grid md:grid-cols-2 " id="auto">
 
                     <div class="flex flex-col ">
-                        <div class=" flex gap-4 justify-center items-center md:justify-start md:items-start ml-[5px]">
-                            <button class="btnforcar bg-black text-white px-4 py-2 rounded-xl font-semibold" data-type="Elektrik" >Elektrik</button>
-                            <button class="btnforcar px-4 py-2 rounded-xl font-semibold text-[rgb(122,125,130)]" data-type="Hibrid">Hibrid</button>
-                            <button class="btnforcar  px-4 py-2 rounded-xl font-semibold text-[rgb(122,125,130)] " data-type="Digər">Digər</button>
+                        <div class=" flex gap-4 justify-center items-center md:justify-start md:items-start ml-[5px] border border-[rgb(122,125,130)] text-[rgb(122,125,130)] bg-[#0A0B0D0A] rounded-md  ">
+                            <button class="btnforcar px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black" data-type="Elektrik" >Elektrik</button>
+                            <button class="btnforcar px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black" data-type="Hibrid">Hibrid</button>
+                            <button class="btnforcar px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black" data-type="Digər">Digər</button>
                         </div>
                         <div class="flex flex-col">
                             <label class="flex  gap-1 flex-col ml-[5px] ">
@@ -368,7 +368,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const tabs = document.querySelectorAll(".tab-link");
-    const tabs2 = document.querySelectorAll(".btnforcar");
+    
 
     tabs.forEach(tab => {
       tab.addEventListener("click", function (e) {
@@ -383,15 +383,28 @@
       });
     }); 
      });
- 
-  const buttons = document.querySelectorAll("button");
+ const tabs2 = document.querySelectorAll(".buttonfortime");
+ const tabs3 = document.querySelectorAll(".btnforcar");
 
-buttons.forEach(btn => {
+tabs2.forEach(btn => {
   btn.addEventListener("click", () => {
-    buttons.forEach(b => b.classList.remove("bg-white", "text-black")); // əvvəlki aktivləri sil
-    btn.classList.add("bg-white", "text-black"); // kliklənmiş aktiv olsun
+    tabs2.forEach(b => b.classList.remove("bg-white", "text-black"));
+    btn.classList.add("bg-white", "text-black");
   });
 });
+    tabs3.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // bütün düymələri deaktiv et
+            tabs3.forEach(b => {
+                b.classList.remove("bg-white", "text-black", "shadow-inner");
+                b.classList.add("text-[#7a7d82]");
+            });
+
+            // kliklənən düyməni aktiv et
+            btn.classList.add("bg-white", "text-black", "shadow-inner");
+            btn.classList.remove("text-[#7a7d82]");
+        });
+    });
 </script>
 
 </body>

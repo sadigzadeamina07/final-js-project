@@ -347,17 +347,36 @@
                             Müddət
                             <input type="range" id="Mortgageyear" min="1" max="25">
                         </label>
+<div class="flex flex-col gap-3">
+    <p>İllik faiz dərəcəsi</p>
+    <div class="flex gap-2">
+        <button data-percent-m="4" class="percent w-12 h-12 flex items-center justify-center rounded-full border-black border bg-[#0A0B0D0A]">
+            4%
+        </button>
 
-                        <label>
-                            İllik faiz dərəcəsi
-                            <button class="percent" data-percent-m="4">4 %</button>
-                            <button class="percent" data-percent-m="7">7 %</button>
-                            <button class="percent" data-percent-m="8">8 %</button>
-                            <button class="percent" data-percent-m="11">11 %</button>
-                            <button class="percent" data-percent-m="12">12 %</button>
-                            <button class="percent" data-percent-m="13">13 %</button>
+        <button data-percent-m="7" class="percent w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A]">
+            7%
+        </button>
 
-                        </label>
+        <button data-percent-m="8" class="percent w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A]">
+            8%
+        </button>
+
+        <button data-percent-m="11" class="percent w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A]">
+            11%
+        </button>
+
+        <button data-percent-m="12" class="percent w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A]">
+            12%
+        </button>
+
+        <button data-percent-m="13" class="percent w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A]">
+            13%
+        </button>
+    </div>
+</div>
+
+
                     </div>
 
                     <div class="card bg-[#1b63ed] p-6 rounded-xl text-white">
@@ -442,6 +461,22 @@ buttons.forEach(btn => {
       b.classList.add("border-transparent");
     });
 
+    btn.classList.add("border-black");
+    btn.classList.remove("border-transparent");
+  });
+});
+const percentButtons = document.querySelectorAll(".percent");
+
+percentButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    // bütün düymələrdən border-black silinir, border-transparent qoyulur
+    percentButtons.forEach(b => {
+      b.classList.remove("border-black");
+      b.classList.add("border-transparent");
+    });
+
+    // klik edilən düyməyə border-black əlavə olunur
     btn.classList.add("border-black");
     btn.classList.remove("border-transparent");
   });

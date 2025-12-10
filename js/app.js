@@ -29,7 +29,7 @@ function updatePrice() {
   const r = Number(percent.value) / 12 / 100;
   const total = P * (r * (1 + r) ** n) / ((1 + r) ** n - 1)
   totalprice.innerHTML = `
-        <p class="text-[32px] font-semibold mb-1">${total.toFixed(2)}₼</p>
+        <p class="text-[45px] font-semibold mb-1">${total.toFixed(2)}₼</p>
     `;
 }
 updatePrice()
@@ -92,15 +92,33 @@ function deposit() {
             : depositPercentUSD[depositMode][selectedmonth];
 
     let totalProfit = amount * (percent / 100) * (selectedmonth / 12);
-    let monthlyIncome =
-        depositMode === "month"
-            ? amount * (percent / 100) / 12
-            : totalProfit / selectedmonth;
+ let monthlyIncome;
+if (depositMode === "month") {
+    monthlyIncome = amount * (percent / 100) / 12;
+} else {
+    monthlyIncome = amount * (percent / 100);
+}
 
-    totalpriceofdeposit.innerHTML = `<p class="text-[32px] font-semibold mb-1">${totalProfit.toFixed(2)} ${symbol}</p>`;
+
+
+    totalpriceofdeposit.innerHTML = `<p class="text-[42px] font-semibold mb-1">${totalProfit.toFixed(2)} ${symbol}</p>`;
     monthlyincome.innerHTML = `<p class="text-[20px]  mb-1">${monthlyIncome.toFixed(2)} ${symbol}</p>`;
     depositpercent.innerHTML = `<p class="text-[20px] mb-1"> ${percent}%</p>`;
 }
+const monthlyText = document.getElementById("monthlyText");
+
+
+monthModeBtn.addEventListener("click", () => {
+    depositMode = "month";
+    monthlyText.innerText = "Hər ay ödənilən faiz";
+    deposit();
+});
+
+yearModeBtn.addEventListener("click", () => {
+    depositMode = "year";
+    monthlyText.innerText = "Hər il ödənilən faiz";
+    deposit();
+});
 
 function updateMonthButtons() {
     monthButtons.forEach(btn => {
@@ -216,7 +234,6 @@ percent=autotypepercent[selectedType]
 const btnforcar = document.querySelectorAll('.btnforcar');
 const percentBlocks = document.querySelectorAll('.percent-block');
 
-// hər düyməyə klik
 btnforcar.forEach(btn => {
     btn.addEventListener("click", () => {
         selectedType = btn.dataset.type;

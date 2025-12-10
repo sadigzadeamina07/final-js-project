@@ -97,6 +97,7 @@
     <main>
         <section class="bg-white">
             <div class="container mx-auto  py-[30px]">
+                <h1 class="text-6xl flex justify-center font-semibold my-[20px]">İndi hesablayın</h1>
       <nav aria-label="Calculator tabs" class="text-center">
   <ul id="tabList" class="flex gap-1 flex-wrap justify-center mb-6">
     <li>
@@ -126,9 +127,13 @@
                 <div id="credit" class="tab-body grid md:grid-cols-2 gap-5">
                     <div class="rangeler flex flex-col gap-5">
                         <label class="flex  gap-1 flex-col ml-[5px] ">
-                            <span class="text-left text-[rgb(122,125,130)]">Məbləğ</span>
+                            <div class="flex justify-between mb-[5px]">
+    <span class="text-left text-[rgb(122,125,130)]">Məbləğ</span>
+      <p class="showprice font-semibold"></p>
+                            </div>
+                        
                             <div class="flex  gap-1 flex-col">
-                                <input class="w-[98%] h-2 rounded-lg" type="range" min="300" max="50000" id="price">
+                                <input class="w-[98%] h-2 rounded-lg  mb-[5px]" type="range" min="300" max="50000" id="price">
                                 <div class="flex justify-between w-[98%]">
                                     <p class="text-[rgb(122,125,130)]">300₼</p>
                                     <p class="text-[rgb(122,125,130)]">50000₼</p>
@@ -138,9 +143,12 @@
                         </label>
 
                         <label class="flex flex-col gap-1 ml-[5px]">
-                            <span class="text-left text-[rgb(122,125,130)]"> Müddət</span>
+                                  <div class="flex justify-between  mb-[5px]">
+    <span class="text-left text-[rgb(122,125,130)]">Müddət</span>
+      <p class="showrange font-semibold"></p>
+                            </div>
                             <div class="flex flex-col gap-1">
-                                <input class="w-[98%] h-2 rounded-lg " type="range" min="3" max="59" id="time">
+                                <input class="w-[98%] h-2 rounded-lg  mb-[5px]" type="range" min="3" max="59" id="time">
                                 <div class="flex justify-between w-[98%]">
                                     <p class="text-[rgb(122,125,130)]">3 ay</p>
                                     <p class="text-[rgb(122,125,130)]">59 ay</p>
@@ -149,9 +157,13 @@
 
                         </label>
                         <label class="flex flex-col gap-1 ml-[5px]">
-                            <span class="text-left text-[rgb(122,125,130)]"> Faiz dərəcəsi</span>
+                                <div class="flex justify-between  mb-[5px] ">
+       <span class="text-left text-[rgb(122,125,130)]"> Faiz dərəcəsi</span>
+      <p class="showrange font-semibold"></p>
+                            </div>
+                     
                             <div class="flex flex-col gap-1">
-                                <input type="range" class="w-[98%] h-2 rounded-lg" min="10.9" max="31.9" id="percent">
+                                <input type="range" class="w-[98%] h-2 rounded-lg  mb-[5px]" min="10.9" max="31.9" id="percent">
                                 <div class="flex justify-between w-[98%]">
                                     <p class="text-[rgb(122,125,130)]">10.9 %</p>
                                     <p class="text-[rgb(122,125,130)]">31.9 %</p>
@@ -162,7 +174,7 @@
 
                     </div>
                     <div
-                        class="card mx-auto bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%] lg:w-[376px] text-white">
+                        class="card flex flex-col justify-between mx-auto bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%] lg:w-[376px] text-white">
                         <p>Aylıq kredit ödənişi</p>
                         <div id="totalprice"></div>
                         <button
@@ -185,16 +197,22 @@
 
                                 <div class="mr-[10px]">
                                     <div class="mr-[10px]">
-    <button id="aznBtn">Azn</button>
-    <button id="usdBtn">Usd</button>
+                                        <div class="border border-[rgb(122,125,130)] mb-[20px] text-[rgb(122,125,130)] bg-[#f5f5f6] rounded-md  ml-[5px]">
+     <button id="aznBtn" class="buttonfortime px-3 py-1 border border-gray-300 rounded-md  bg-[#f5f5f6] hover:bg-gray-100 transition-colors active:bg-white active:text-black">
+    Azn
+    </button>
+    <button  id="usdBtn" class=" buttonfortime px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black">
+Usd
+    </button>
+</div>
 </div>
 
                                 </div>
                             </div>
                             <label class="flex mb-[20px] flex-col gap-1 ml-[5px]">
-                                <span class="text-left text-[rgb(122,125,130)]"> Məbləğ</span>
+                                <span class="text-left text-[rgb(122,125,130)] mb-[5px]"> Məbləğ</span>
                                 <div class="flex flex-col gap-1">
-                                    <input class="w-[98%] h-2 rounded-lg " type="range" name="" min="300" max="3000000"
+                                    <input class="w-[98%] h-2 rounded-lg mb-[5px] " type="range" name="" min="300" max="3000000"
                                         id="depositCalculation">
 
                                     <div class="flex justify-between w-[98%]">
@@ -207,8 +225,8 @@
                             <label for="" class="mb-[10px] ">
                              
 
-    <div  class="flex flex-col gap-3">
-           <p>Müddət</p>
+    <div  class="flex flex-col gap-3 ml-[5px]">
+           <p class="text-[rgb(122,125,130)]">Müddət</p>
            <div>
         <button id="depositmonth" value="3" class="w-12 h-12 flex items-center justify-center rounded-full border  bg-[#0A0B0D0A] border-black ">
             3
@@ -239,12 +257,12 @@
                     <div
                         class="card  mx-auto bg-[#1b63ed] p-[25px] rounded-2xl text-center w-[96%]  lg:w-[376px] text-white">
 
-                        <p>Aylıq kredit ödənişi</p>
+                        <p>Ümumi qazanc</p>
                         <div id="totalpriceofdeposit"></div>
                         <hr />
                         <div class="flex justify-between ">
                             <div class="flex flex-col">
-     <p>Hər ay ödənilən faiz</p>
+     <p id="monthlyText">Hər ay ödənilən faiz</p>
 
                             <p id="monthlyincome"></p>
                             </div>
@@ -260,7 +278,7 @@
 
                 <div class="tab-body hidden  grid md:grid-cols-2 " id="auto">
 
-                    <div class="flex flex-col ">
+                    <div class="flex flex-col gap-3">
                         <div class="w-fit flex gap-4 justify-center items-center md:justify-start md:items-start 
             ml-[5px] border border-[rgb(122,125,130)] text-[rgb(122,125,130)]
             bg-[#0A0B0D0A] rounded-md px-2 py-1">
@@ -268,9 +286,13 @@
                             <button class="btnforcar px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black" data-type="Hibrid">Hibrid</button>
                             <button class="btnforcar px-3 py-1 border border-gray-300 rounded-md  bg-gray-200 hover:bg-gray-100 transition-colors active:bg-white active:text-black" data-type="Digər">Digər</button>
                         </div>
-                        <div class="flex flex-col">
+                        <div class="flex flex-col gap-2">
                             <label class="flex  gap-1 flex-col ml-[5px] ">
-                                <span class="text-left text-[rgb(122,125,130)]"> Avtomobilin qiyməti</span>
+                                <div class="flex justify-between">
+  <span class="text-left text-[rgb(122,125,130)]"> Avtomobilin qiyməti</span>
+                               <p class="showrange font-semibold"></p>
+                                </div>
+                              
                                 <div class="flex  gap-1 flex-col">
                                     <input type="range" class="w-[98%] h-2 rounded-lg" name="" min="300" max="500000"
                                         id="autoPrice">
@@ -281,25 +303,55 @@
                                 </div>
 
                             </label>
-                            <label class="flex flex-col percent-block" data-type="Elektrik">
-                                İlkin ödəniş faizi
-                                <input type="range" min="10" max="90" class="autoPercent">
+                            <label class="flex flex-col percent-block ml-[5px]" data-type="Elektrik">
+                               <div class="flex   mb-[5px]">
+  <span class="text-left text-[rgb(122,125,130)]"> İlkin ödəniş faizi</span>
+                                       <p class="showrange font-semibold"></p>  
+                               </div>
+                              
+                                <input type="range" min="10" max="90" class="autoPercent w-[98%] h-2 rounded-lg  mb-[5px]">
+                                   <div class="flex justify-between w-[98%]">
+                                        <p class="text-[rgb(122,125,130)]">10%</p>
+                                        <p class="text-[rgb(122,125,130)]">90%</p>
+                                    </div>
                             </label>
 
-                            <label class="flex flex-col percent-block hidden" data-type="Hibrid">
-                                İlkin ödəniş faizi
-                                <input type="range" min="20" max="90" class="autoPercent">
+                            <label class="flex flex-col percent-block hidden  gap-1  ml-[5px]" data-type="Hibrid">
+                          <div class="flex   mb-[10px]">
+  <span class="text-left text-[rgb(122,125,130)]"> İlkin ödəniş faizi</span>
+                                       <p class="showrange font-semibold"></p>  
+                               </div>
+                                <input type="range" min="20" max="90" class="autoPercent w-[98%] h-2 rounded-lg  mb-[10px]">
+                                 <div class="flex justify-between w-[98%]">
+                                        <p class="text-[rgb(122,125,130)]">20%</p>
+                                        <p class="text-[rgb(122,125,130)]">90%</p>
+                                    </div>
                             </label>
 
-                            <label class="flex flex-col percent-block hidden" data-type="Digər">
-                                İlkin ödəniş faizi
-                                <input type="range" min="40" max="90" class="autoPercent">
+                            <label class="flex flex-col percent-block hidden ml-[5px]" data-type="Digər">
+                               <div class="flex">
+  <span class="text-left text-[rgb(122,125,130)]"> İlkin ödəniş faizi</span>
+                                       <p class="showrange font-semibold"></p>  
+                               </div>
+                                <input type="range" min="40" max="90" class="autoPercent w-[98%] h-2 rounded-lg  mb-[5px]">
+                                   <div class="flex justify-between w-[98%]">
+                                        <p class="text-[rgb(122,125,130)]">40%</p>
+                                        <p class="text-[rgb(122,125,130)]">90%</p>
+                                    </div>
                             </label>
 
 
-                            <label for="" class="flex flex-col">
-                                Kredit müddəti
-                                <input type="range" name="" min="3" max="60" id="creditTimeofAuto">
+                            <label for="" class="flex flex-col ml-[5px]">
+                                <div class="flex  justify-between  mx-[5px] mb-[5px]">
+ <span class="text-left text-[rgb(122,125,130)]"> Kredit müddəti</span>   
+                                        <p class="showrange font-semibold "></p>
+                                </div>
+                                   
+                                <input type="range" name="" min="3" max="60" class="w-[98%] h-2 rounded-lg  mb-[10px]" id="creditTimeofAuto">
+                                      <div class="flex justify-between w-[98%] ">
+                                        <p class="text-[rgb(122,125,130)]">3 ay</p>
+                                        <p class="text-[rgb(122,125,130)]">60 ay</p>
+                                    </div>
 
                             </label>
 
@@ -308,7 +360,7 @@
 
                     <div
                         class="card  mx-auto  md:m-0   bg-[#1b63ed] lg:p-[36px] space-y-800 mx-auto  p-[20px] rounded-2xl w-[96%]  lg:w-[376px]">
-                        <div class="gap-5 flex flex-col  text-center text-white">
+                        <div class=" flex flex-col gap-5 text-center text-white">
                             <p>Aylıq kredit ödənişi</p>
                             <div id="totalpriceofauto"></div>
                             <hr />
@@ -337,18 +389,37 @@
 
                 </div>
                 <div class="tab-body hidden grid md:grid-cols-2" id="ipoteka">
-                    <div class="rangeler">
+                    <div class="rangeler  flex flex-col gap-3">
                         <label class="flex flex-col">
-                            Kredit məbləği
-                            <input type="range" id="Mortgageprice" min="1" max="500000">
+                                <div class="flex  justify-between  mx-[5px] mb-[5px]">
+ <span class="text-left text-[rgb(122,125,130)]">     Kredit məbləği</span>   
+                                        <p class="showrange font-semibold "></p>
+                                </div>
+                       
+                            <input type="range" id="Mortgageprice" class="w-[98%] h-2 rounded-lg  mb-[10px]" min="1" max="500000">
+                                <div class="flex justify-between w-[98%] ">
+                                        <p class="text-[rgb(122,125,130)]">3 ay</p>
+                                        <p class="text-[rgb(122,125,130)]">60 ay</p>
+                                    </div>
                         </label>
 
                         <label class="flex flex-col">
-                            Müddət
-                            <input type="range" id="Mortgageyear" min="1" max="25">
+                             <label class="flex flex-col">
+                                <div class="flex  justify-between  mx-[5px] mb-[5px]">
+ <span class="text-left text-[rgb(122,125,130)]">   Müddət</span>   
+                                        <p class="showrange font-semibold "></p>
+                                </div>
+                         <input type="range" id="Mortgageyear" class="w-[98%] h-2 rounded-lg  mb-[10px]"  min="1" max="25">
+                
+                                <div class="flex justify-between w-[98%] ">
+                                        <p class="text-[rgb(122,125,130)]">1 il</p>
+                                        <p class="text-[rgb(122,125,130)]">25 il</p>
+                                    </div>
+                          
+                          
                         </label>
-<div class="flex flex-col gap-3">
-    <p>İllik faiz dərəcəsi</p>
+<div class="flex flex-col gap-3 mt-[5px]">
+    <p class="text-[rgb(122,125,130)]">İllik faiz dərəcəsi</p>
     <div class="flex gap-2">
         <button data-percent-m="4" class="percent w-12 h-12 flex items-center justify-center rounded-full border-black border bg-[#0A0B0D0A]">
             4%
@@ -379,7 +450,7 @@
 
                     </div>
 
-                    <div class="card bg-[#1b63ed] p-6 rounded-xl text-white">
+                    <div class="card bg-[#1b63ed] p-6 rounded-xl w-[96%] lg:w-[376px] m-auto mt-[10px] text-white">
                         <div class="text-center">
                             <p>Aylıq kredit ödənişi</p>
                             <div id="Mortgageformonth"></div>
@@ -394,7 +465,7 @@
                             </div>
                             <div>
                                 <p>İllik faiz dərəcəsi</p>
-                                faiz <div id="PercentforYear"></div>
+                                <div id="PercentforYear"></div>
                             </div>
                         </div>
 
@@ -439,13 +510,10 @@ tabs2.forEach(btn => {
 });
     tabs3.forEach(btn => {
         btn.addEventListener("click", () => {
-            // bütün düymələri deaktiv et
             tabs3.forEach(b => {
                 b.classList.remove("bg-white", "text-black", "shadow-inner");
                 b.classList.add("text-[#7a7d82]");
             });
-
-            // kliklənən düyməni aktiv et
             btn.classList.add("bg-white", "text-black", "shadow-inner");
             btn.classList.remove("text-[#7a7d82]");
         });
@@ -469,20 +537,14 @@ const percentButtons = document.querySelectorAll(".percent");
 
 percentButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-
-    // bütün düymələrdən border-black silinir, border-transparent qoyulur
     percentButtons.forEach(b => {
       b.classList.remove("border-black");
       b.classList.add("border-transparent");
     });
-
-    // klik edilən düyməyə border-black əlavə olunur
     btn.classList.add("border-black");
     btn.classList.remove("border-transparent");
   });
 });
-
-
 
 </script>
 

@@ -170,11 +170,11 @@
                             et</button>
                     </div>
                 </div>
-                <div id="deposit" class="tab-body hidden grid md:grid-cols-2 gap-5   ">
+                <div id="deposit" class="tab-body hidden grid md:grid-cols-2 gap-5  ">
                     <div class="  flex flex-col   " id="deposit-range">
                         <div class="flex flex-col ">
                             <div class="flex justify-between">
-<div class="border border-[rgb(122,125,130)] text-[rgb(122,125,130)] bg-[#f5f5f6] rounded-md  ml-[5px]">
+<div class="border border-[rgb(122,125,130)] mb-[20px] text-[rgb(122,125,130)] bg-[#f5f5f6] rounded-md  ml-[5px]">
      <button id="every-month" class="buttonfortime px-3 py-1 border border-gray-300 rounded-md  bg-[#f5f5f6] hover:bg-gray-100 transition-colors active:bg-white active:text-black">
       Hər ay
     </button>
@@ -183,12 +183,15 @@
     </button>
 </div>
 
-                                <div>
-                                    <button>Azn</button>
-                                    <button>Usd</button>
+                                <div class="mr-[10px]">
+                                    <div class="mr-[10px]">
+    <button id="aznBtn">Azn</button>
+    <button id="usdBtn">Usd</button>
+</div>
+
                                 </div>
                             </div>
-                            <label class="flex flex-col gap-1 ml-[5px]">
+                            <label class="flex mb-[20px] flex-col gap-1 ml-[5px]">
                                 <span class="text-left text-[rgb(122,125,130)]"> Məbləğ</span>
                                 <div class="flex flex-col gap-1">
                                     <input class="w-[98%] h-2 rounded-lg " type="range" name="" min="300" max="3000000"
@@ -201,14 +204,35 @@
                                 </div>
 
                             </label>
-                            <label for="">
-                                Müddət
-                                <button id="depositmonth" value="3">3</button>
-                                <button id="depositmonth" value="6">6</button>
-                                <button id="depositmonth" value="12">12</button>
-                                <button id="depositmonth" value="18">18</button>
-                                <button id="depositmonth" value="24">24</button>
-                                <button id="depositmonth" value="36">36</button>
+                            <label for="" class="mb-[10px] ">
+                             
+
+    <div  class="flex flex-col gap-3">
+           <p>Müddət</p>
+           <div>
+        <button id="depositmonth" value="3" class="w-12 h-12 flex items-center justify-center rounded-full border  bg-[#0A0B0D0A] border-black ">
+            3
+        </button>
+        <button id="depositmonth"  value="6" class="w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A] active:border-black">
+            6
+        </button>
+        <button id="depositmonth" value="12" class="w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A] active:border-black">
+            12
+        </button>
+        <button  id="depositmonth"  value="18"  class="w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A] active:border-black">
+            18
+        </button>
+        <button id="depositmonth"  value="24" class="w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A] active:border-black">
+            24
+        </button>
+        <button id="depositmonth" value="36" class="w-12 h-12 flex items-center justify-center rounded-full border border-transparent bg-[#0A0B0D0A] active:border-black">
+            36
+        </button>
+           </div>
+
+    </div>
+</label>
+
                             </label>
                         </div>
                     </div>
@@ -407,6 +431,24 @@ tabs2.forEach(btn => {
             btn.classList.remove("text-[#7a7d82]");
         });
     });
+
+const buttons = document.querySelectorAll("#depositmonth");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    buttons.forEach(b => {
+      b.classList.remove("border-black");
+      b.classList.add("border-transparent");
+    });
+
+    btn.classList.add("border-black");
+    btn.classList.remove("border-transparent");
+  });
+});
+
+
+
 </script>
 
 </body>

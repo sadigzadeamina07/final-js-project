@@ -37,61 +37,127 @@ price.addEventListener("input", updatePrice);
 time.addEventListener("input", updatePrice);
 percent.addEventListener("input", updatePrice);
 //deposit
-const depositPercent = {
+const monthButtons = document.querySelectorAll("#depositmonth");
+
+const depositPercentAZN = {
+  month:{
   3: 8,
   6: 8.5,
   12: 8.5,
   18: 9.0,
   24: 7.5,
   36: 7.5
+  },
+year:{
+  3: 8,
+  6: 9,
+  12: 9.5,
+  18: 10,
+  24: 8.5,
+  36: 8.5
+}
 };
-let selectedmonth = 3
-let depositMode = "month";
-function deposit() {
-  const amount = Number(depositprice.value)
-  const percentofdeposit = depositPercent[selectedmonth]
-  let totalpricedeposit = amount * ((percentofdeposit / 100) * (selectedmonth / 12));
-  let monthlyincomepercent
-  if (depositMode === "month") {
-    monthlyincomepercent = amount * ((percentofdeposit / 100) * (1 / 12));
 
+const depositPercentUSD = {
+  month:{
+  3: 2,
+  6: 2.5,
+  12: 3,
+  18:3
+  },
+  year:{
+      3: 2.5,
+  6: 3,
+  12: 3.5,
+  18:3.5
   }
-  else {
-    monthlyincomepercent = amount * (percentofdeposit / 100)
-  }
-  totalpriceofdeposit.innerHTML = `
-        <p class="text-[45px] font-semibold mb-1">${totalpricedeposit.toFixed(2)}₼</p>
-    `;
-  monthlyincome.innerHTML = `
-        <p class="text-sm font-semibold mb-1">${monthlyincomepercent.toFixed(2)}₼</p>
-    `;
-  depositpercent.innerHTML = `
-        <p class="text-sm font-semibold mb-1">${percentofdeposit}%</p>
-    `;
+
+};
+
+let selectedmonth = 3;
+let depositMode = "month";
+let selectedCurrency = "AZN";
+const monthModeBtn = document.getElementById("every-month");
+const yearModeBtn = document.getElementById("every-year");
+const aznBtn = document.getElementById("aznBtn");
+const usdBtn = document.getElementById("usdBtn");
+
+function deposit() {
+    const amount = Number(depositprice.value);
+    const symbol = selectedCurrency === "AZN" ? "₼" : "$";
+
+    const percent =
+        selectedCurrency === "AZN"
+            ? depositPercentAZN[depositMode][selectedmonth]
+            : depositPercentUSD[depositMode][selectedmonth];
+
+    let totalProfit = amount * (percent / 100) * (selectedmonth / 12);
+    let monthlyIncome =
+        depositMode === "month"
+            ? amount * (percent / 100) / 12
+            : totalProfit / selectedmonth;
+
+    totalpriceofdeposit.innerHTML = `<p>${totalProfit.toFixed(2)} ${symbol}</p>`;
+    monthlyincome.innerHTML = `<p>${monthlyIncome.toFixed(2)} ${symbol}</p>`;
+    depositpercent.innerHTML = `<p>${percent}%</p>`;
 }
 
-const monthButtons = document.querySelectorAll("#depositmonth")
-monthButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    selectedmonth = Number(btn.value)
-    deposit()
-  });
-});
-const everyMonthBtn = document.getElementById("every-month");
-const everyYearBtn = document.getElementById("every-year");
+function updateMonthButtons() {
+    monthButtons.forEach(btn => {
+        const month = Number(btn.value);
 
-everyMonthBtn.addEventListener("click", () => {
-  depositMode = "month";
-  deposit();
+        if (selectedCurrency === "USD" && (month === 24 || month === 36)) {
+            btn.style.display = "none";
+            btn.disabled = true;
+        } else {
+            btn.style.display = "inline-block";
+            btn.disabled = false;
+        }
+    });
+}
+
+monthButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        if (!btn.disabled) {
+            selectedmonth = Number(btn.value);
+            deposit();
+        }
+    });
 });
 
-everyYearBtn.addEventListener("click", () => {
-  depositMode = "year";
-  deposit();
+monthModeBtn.addEventListener("click", () => {
+    depositMode = "month";
+    monthModeBtn.classList.add("active");
+    yearModeBtn.classList.remove("active");
+    deposit();
+});
+
+yearModeBtn.addEventListener("click", () => {
+    depositMode = "year";
+    yearModeBtn.classList.add("active");
+    monthModeBtn.classList.remove("active");
+    deposit();
+});
+
+aznBtn.addEventListener("click", () => {
+    selectedCurrency = "AZN";
+    updateMonthButtons();
+    deposit();
+});
+
+usdBtn.addEventListener("click", () => {
+    selectedCurrency = "USD";
+    updateMonthButtons();
+    deposit();
 });
 
 depositprice.addEventListener("input", deposit);
-deposit()
+
+updateMonthButtons();
+deposit();
+
+
+
 //auto
   const autotypepercent={
 Elektrik:13,

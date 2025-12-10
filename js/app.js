@@ -227,8 +227,6 @@ percent=autotypepercent[selectedType]
         <p class="text-[20px]  mb-1">${totalPayment.toFixed(2)} ₼</p>
     `  
 
-
-    ;
 }
 
 const btnforcar = document.querySelectorAll('.btnforcar');

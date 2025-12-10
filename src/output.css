@@ -231,6 +231,9 @@
   .mx-\[5px\] {
     margin-inline: 5px;
   }
+  .mx-\[7px\] {
+    margin-inline: 7px;
+  }
   .mx-\[30px\] {
     margin-inline: 30px;
   }
@@ -281,6 +284,9 @@
   }
   .ml-\[5px\] {
     margin-left: 5px;
+  }
+  .ml-\[7px\] {
+    margin-left: 7px;
   }
   .ml-\[10px\] {
     margin-left: 10px;
@@ -673,6 +679,12 @@
   .md\:justify-start {
     @media (width >= 48rem) {
       justify-content: flex-start;
+    }
+  }
+  .md\:text-6xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-6xl);
+      line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }
   .lg\:w-\[3px\] {
